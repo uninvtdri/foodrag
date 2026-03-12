@@ -25,7 +25,7 @@ International Dishes
 15. Tacos - Mexican corn tortilla street food
 
 How to Run
-1. Install Ollama and pull models: ollama pull mxbai-embed-large && ollama pull llama3.2
+1. Install Ollama and pull models: ollama pull mxbai-embed-large and ollama pull llama3.2
 2. Clone repo: git clone https://github.com/uninvtdri/ragfood.git
 3. Install deps: pip3 install chromadb requests
 4. Run: python3 rag_run.py
