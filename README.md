@@ -31,4 +31,13 @@ How to Run
 4. Run: python3 rag_run.py
 
 Personal Reflection
-(Write your 200+ words here)
+
+This project was harder than I expected. I thought it was just about adding food data and running a script but there were a lot of steps involved. Setting up Ollama, downloading the models, forking the repo, and dealing with GitHub tokens took a while to figure out.
+
+The GitHub token part was new to me. I did not know you could not use your regular password to push code and that you needed a personal access token instead.
+
+When the system finally worked it was cool to see it retrieve the right food when I asked about it. When I asked what is sinigang it found the correct entry and used it to answer. It does not just look for the exact word, it finds things related in meaning. That is what vector embeddings do and it made more sense after actually seeing it work.
+
+Adding Filipino foods was the part I enjoyed the most. Sinigang, igado, caldereta, tinolang manok, and bulalo are dishes I grew up with so it felt good to see the AI answer questions about them.
+
+Overall I learned that AI is not magic. It is just data, tools, and a process you have to set up correctly.
