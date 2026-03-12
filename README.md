@@ -41,3 +41,4 @@ When the system finally worked it was cool to see it retrieve the right food whe
 Adding Filipino foods was the part I enjoyed the most. Sinigang, igado, caldereta, tinolang manok, and bulalo are dishes I grew up with so it felt good to see the AI answer questions about them.
 
 Overall I learned that AI is not magic. It is just data, tools, and a process you have to set up correctly.
+ 
