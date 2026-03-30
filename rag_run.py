@@ -56,7 +56,7 @@ def rag_query(question):
     q_emb = get_embedding(question)
 
     # Step 2: Query the vector DB
-    results = collection.query(query_embeddings=[q_emb], n_results=3)
+    results = collection.query(query_embeddings=[q_emb], n_results=5)
 
     # Step 3: Extract documents
     top_docs = results['documents'][0]
