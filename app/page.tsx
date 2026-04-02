@@ -18,7 +18,7 @@ export default function Home() {
     setAnswer("")
     setSources([])
     const result = await askFood(question)
-    if (result.success) {
+    if ("answer" in result) {
       setAnswer(result.answer || "")
       setSources(result.sources || [])
     } else {
