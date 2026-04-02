@@ -1,40 +1,92 @@
-My 15 New Food Items
+# Food RAG - Cloud Migration
 
-Filipino Cultural Cuisine
-1. Sinigang - Sour tamarind soup with pork or shrimp
-2. Igado - Ilocano pork and organ meat stew
-3. Caldereta - Beef stew in tomato sauce with liver spread
-4. Tinolang Manok - Ginger chicken soup with green papaya
-5. Bulalo - Slow-cooked beef bone marrow soup from Batangas
+A cloud-powered Food RAG (Retrieval-Augmented Generation) system migrated from local ChromaDB and Ollama to Upstash Vector and Groq Cloud.
 
-Healthy Foods
-6. Oatmeal - High fiber, sustained energy
-7. Boiled Egg - Complete protein, 75 calories
-8. Air-Fried Chicken Breast - 31g protein per 100g
-9. Tofu - Complete plant protein
-10. Steamed Fish - High protein, omega-3 rich
+## Live Demo
+https://v0-food-rag-app-04.vercel.app
 
-International Dishes
-11. Lasagna - Italian layered baked pasta
-12. Sushi - Japanese vinegared rice with raw fish
-13. Hamburger - American ground beef patty in a bun
-14. Croissant - French laminated butter pastry
-15. Tacos - Mexican corn tortilla street food
+## Architecture
 
-How to Run
-1. Install Ollama and pull models: `ollama pull mxbai-embed-large` and `ollama pull llama3.2`
-2. Clone repo: `git clone https://github.com/uninvtdri/food-rag-web-app.git`
-3. Install deps: `pip3 install chromadb requests`
-4. Run: `python3 rag_run.py`
+### Local Version (Week 2)
+- Vector DB: ChromaDB (local)
+- Embeddings: Ollama (mxbai-embed-large)
+- LLM: Ollama (llama3.2)
+- Interface: Python CLI
 
-Personal Reflection
-This project was harder than I expected. I thought it was just about adding food data and running a script but there were a lot of steps involved. Setting up Ollama, downloading the models, forking the repo, and dealing with GitHub tokens took a while to figure out.
+### Cloud Version (Week 3)
+- Vector DB: Upstash Vector (cloud)
+- Embeddings: Upstash built-in (BGE_SMALL_EN_V1_5)
+- LLM: Groq Cloud (llama-3.1-8b-instant)
+- Interface: Next.js Web App on Vercel
 
-The GitHub token part was new to me. I did not know you could not use your regular password to push code and that you needed a personal access token instead.
+## Repository Structure
 
-When the system finally worked it was cool to see it retrieve the right food when I asked about it. When I asked what is sinigang it found the correct entry and used it to answer. It does not just look for the exact word, it finds things related in meaning. That is what vector embeddings do and it made more sense after actually seeing it work.
+foodrag/
+- local-version/ : Original Week 2 ChromaDB system
+- cloud-version/ : New Upstash and Groq implementation
+- data/ : Enhanced food database with 90 items
+- docs/ : Migration plan and documentation
+- app/ : Next.js web application
+- lib/ : RAG pipeline code
 
-Adding Filipino foods was the part I enjoyed the most. Sinigang, igado, caldereta, tinolang manok, and bulalo are dishes I grew up with so it felt good to see the AI answer questions about them.
+## Environment Variables
 
-Overall I learned that AI is not magic. It is just data, tools, and a process you have to set up correctly.
-# trigger redeploy
+UPSTASH_VECTOR_REST_URL - Your Upstash Vector database URL
+UPSTASH_VECTOR_REST_TOKEN - Your Upstash Vector authentication token
+GROQ_API_KEY - Your Groq Cloud API key
+
+## Setup Instructions
+
+### Local Version
+pip install chromadb ollama
+python3 rag_run.py
+
+### Cloud Version
+pip install upstash-vector groq python-dotenv
+python3 migrate_data.py
+npm install
+npm run dev
+
+## Local vs Cloud Comparison
+
+Feature         | Local Version      | Cloud Version
+----------------|--------------------|------------------
+Vector DB       | ChromaDB           | Upstash Vector
+Embeddings      | Ollama             | Upstash built-in
+LLM             | Ollama llama3.2    | Groq llama-3.1-8b
+Interface       | Python CLI         | Next.js Web App
+Deployment      | Local only         | Vercel (global)
+Response Time   | 3-5 seconds        | Under 1 second
+Cost            | Free (local)       | Free tier
+
+## Food Database
+
+The database contains 90 diverse food items including:
+- Filipino cuisine: Sinigang, Adobo, Bulalo, Caldereta
+- Asian cuisine: Pad Thai, Ramen, Kimchi, Bibimbap
+- Mediterranean: Hummus, Baklava, Falafel, Tabbouleh
+- Health foods: Oatmeal, Quinoa, Tofu, Steamed fish
+- Comfort foods: Mac and cheese, Lasagna, Poutine
+
+## Test Queries
+
+1. What is sinigang?
+2. Tell me about healthy foods
+3. What Filipino foods do you know?
+4. What are some spicy dishes?
+5. Tell me about Japanese food
+6. What are good vegetarian options?
+7. Tell me about Korean cuisine
+8. What is a good high protein food?
+9. Tell me about Mediterranean food
+10. What are some comfort foods?
+11. What Thai dishes do you know?
+12. Tell me about desserts
+13. What are some Asian soups?
+14. Tell me about street food
+15. What are some Indonesian dishes?
+
+## Version History
+
+v1.0 - Local ChromaDB and Ollama system
+v2.0 - Cloud Upstash and Groq migration with Next.js web interface
